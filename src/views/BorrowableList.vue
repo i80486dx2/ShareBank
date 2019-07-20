@@ -1,5 +1,29 @@
 <template>
-  <div class="about">
-    <h1>This is an borrowablelist page</h1>
+  <div>
+    <div class="text-xs-center">
+      <v-btn
+        color="primary"
+        @click="alert "
+      >
+        Toggle
+      </v-btn>
+    </div>
+    <v-alert
+      :value="alert"
+      type="success"
+      transition="scale-transition"
+    >
+      This is a success alert.
+    </v-alert>
   </div>
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        alert: true
+      }
+    }
+  }
+</script>
