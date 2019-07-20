@@ -1,7 +1,29 @@
 <template>
-  <div class="about">
-    <h1>This is an login user page</h1>
-  </div>
+
+<div id="app">
+  <v-container>
+    <v-layout align-center justify-center>
+      <v-flex md4 class="white">
+        <v-container style="position: relative;top: 20%;" class="text-md-center">
+          <v-card flat>
+            <v-card-title primary-title>
+              <h4>ログイン</h4>
+            </v-card-title>
+            <v-form>
+            <v-text-field prepend-icon="person" name="Username" label="学籍番号" required ></v-text-field>
+            <v-text-field prepend-icon="lock" name="Password" label="パスワード" type="password" required ></v-text-field>
+            <v-card-actions>
+              <v-btn primary large block>ログイン</v-btn>
+            </v-card-actions>
+            
+            </v-form>
+          </v-card>
+        </v-container>
+      </v-flex>
+    </v-layout>
+  </v-container>
+</div>
+
 </template>
 
 <script>
