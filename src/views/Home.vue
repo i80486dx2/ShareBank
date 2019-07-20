@@ -44,7 +44,5 @@
   min-width: 80px;
   margin: 10px;
 }
-.inner{
- 
-}
+
 </style>
