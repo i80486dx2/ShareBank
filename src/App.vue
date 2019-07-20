@@ -26,17 +26,6 @@ import firebase from 'firebase';
 
 export default {
   name: 'App',
-  mounted: function(){
-    this.prototype.$firebaseUser = firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        console.log(`logged in ${user.uid}`);
-      } else {
-        // User is signed out.
-        console.log("logout!");
-      }
-    });
-  },
   data () {
     return {
       //
