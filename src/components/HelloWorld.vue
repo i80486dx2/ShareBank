@@ -15,20 +15,15 @@
 
       <v-flex mb-4>
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+          テスト用画面遷移
         </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
       </v-flex>
 
       <v-flex
         mb-5
         xs12
       >
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+        <h2 class="headline font-weight-bold mb-3">Try?</h2>
 
         <v-layout justify-center>
           <a
@@ -42,44 +37,6 @@
           </a>
         </v-layout>
       </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -87,56 +44,35 @@
 <script>
   export default {
     data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader'
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify'
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify'
-        }
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com'
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com'
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuetifyjs.com'
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs'
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify'
-        }
-      ],
       whatsNext: [
         {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer'
+          text: 'ログイン',
+          href: 'login'
+        },
+                {
+          text: '新規登録',
+          href: 'register'
         },
         {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/layout/pre-defined'
+          text: 'ホーム',
+          href: 'home'
         },
         {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
+          text: '物品登録',
+          href: 'add-property'
+        },
+        {
+          text: '貸出可能リスト',
+          href: 'borrowable-list'
+        },
+        {
+          text: '貸出',
+          href: 'chose-borrowing'
+        },
+        {
+          text: '返却',
+          href: 'borrowing-list'
         }
-
       ]
     })
   }
