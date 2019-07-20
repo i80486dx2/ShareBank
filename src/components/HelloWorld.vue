@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container >
     <v-layout
       text-xs-center
       wrap
@@ -10,17 +10,18 @@
           contain
           width="1000"
         ></v-img>
-  <v-flex>
-        <v-btn
-          v-for="(next, i) in whatsNext"
-          :key="i"
-          :href="next.href"
-          class="subheading mx-12"
-          target="_blank"
-        >
-        {{ next.text }}
-        </v-btn>
-  </v-flex>
+
+      <v-flex>
+            <v-btn
+              v-for="(next, i) in whatsNext"
+              :key="i"
+              :href="next.href"
+              class="subheading mx-12"
+              target="_blank"
+            >
+            {{ next.text }}
+            </v-btn>
+      </v-flex>
       
     </v-layout>
   </v-container>
@@ -63,6 +64,3 @@
   }
 </script>
 
-<style>
-
-</style>
