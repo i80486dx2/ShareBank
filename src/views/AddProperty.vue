@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an add property page</h1>
+    <v-btn primary large block v-on:click="pushProperty('テスト')">test</v-btn>
   </div>
 </template>
 
@@ -17,9 +18,10 @@ export default {
   },
   methods: {
       pushProperty(name) {
-        db.collection("properties").add({
+        this.db.collection("properties").add({
             name: name,
-            ownerId: aaaa,
+            ownerId: firebase.auth().currentUser.uid,
+            ownerName: firebase.auth().currentUser.displayName
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
