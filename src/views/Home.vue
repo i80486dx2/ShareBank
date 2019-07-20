@@ -7,7 +7,7 @@
         <v-card>
         <v-flex>
           <img src="../assets/IMG_3110.jpg" width="350"/>
-          <v-btn  large block ><h1>貸す</h1></v-btn>      
+          <v-btn  large block :to="{name: 'chose-borrowing'}"><h1>貸す</h1></v-btn>      
         </v-flex>
         </v-card>
       </div>
