@@ -10,10 +10,10 @@
               <h4>ログイン</h4>
             </v-card-title>
             <v-form>
-            <v-text-field prepend-icon="person" name="Username" label="学籍番号" required ></v-text-field>
-            <v-text-field prepend-icon="lock" name="Password" label="パスワード" type="password" required ></v-text-field>
+            <v-text-field v-model="mail" prepend-icon="person" name="Username" label="メールアドレス" required ></v-text-field>
+            <v-text-field v-model="password" prepend-icon="lock" name="Password" label="パスワード" type="password" required ></v-text-field>
             <v-card-actions>
-              <v-btn primary large block>ログイン</v-btn>
+              <v-btn primary large block v-on:click="signUpToFirebase(mail,password)">ログイン</v-btn>
             </v-card-actions>
             
             </v-form>
@@ -34,10 +34,11 @@ export default {
   },
   data () {
     return {
+        mail: '',
+        password: ''
     }
   },
   mounted: function() {
-      this.signUpToFirebase("gpioblink@gmail.com", "testingocean");
   },
   methods: {
       signUpToFirebase(email, password) {
