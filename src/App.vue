@@ -22,13 +22,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import firebase from 'firebase';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  },
   data () {
     return {
       //
