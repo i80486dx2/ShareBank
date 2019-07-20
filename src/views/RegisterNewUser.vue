@@ -1,18 +1,3 @@
-<script>
-  export default {
-    data () {
-      return {
-        show1: false,
-        rules: {
-          required: v => !!v || '8文字以上使用してください',
-          min: v => v.length >= 8 || '8文字以上使用してください',
-          required_2: v => !!v || 'E-mailアドレスを入力してください'
-        }
-      }
-    }
-  }
-</script>
-
 <template>
   <div id="app">
   <v-container>
@@ -25,7 +10,7 @@
             </v-card-title>
             <v-form>
             <v-text-field 
-            v-model="name" 
+            v-model="mail" 
             prepend-icon="mail"
             :rules="[rules.required_2]"
             :type="show1 ? 'text' : 'name'"
@@ -48,8 +33,17 @@
              counter
              @click:append="show1 = !show1"
              ></v-text-field>
-            <v-card-actions >
-              <v-btn primary large block color="blue lighten-2">新規登録</v-btn>
+            <v-alert
+              v-if="errorMessage"
+              :value="true"
+              color="error"
+              icon="warning"
+              outline
+            >
+              {{errorMessage}}
+            </v-alert>
+            <v-card-actions>
+              <v-btn primary large block color="info" v-on:click="signUpToFirebase(mail,password)">新規登録</v-btn>
             </v-card-actions>
             
             </v-form>
@@ -60,3 +54,43 @@
   </v-container>
 </div>
 </template>
+
+<script>
+import firebase from 'firebase'
+export default {
+  name: 'LoginUser',
+  components: {
+  },
+  data () {
+    return {
+      mail: '',
+      password: '',
+      show1: false,
+      rules: {
+        required: v => !!v || '8文字以上使用してください',
+        min: v => v.length >= 8 || '8文字以上使用してください',
+        required_2: v => !!v || 'E-mailアドレスを入力してください'
+      },
+      errorMessage: null
+    }
+  },
+  mounted: function() {
+  },
+  methods: {
+      signUpToFirebase: function(email, password) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            console.log(userCredential);
+            console.log(`Your uid is ${firebase.auth().currentUser.uid}`);
+            this.$router.push('/home');
+            this.errorMessage = null;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            this.errorMessage = errorMessage;
+        });
+      }
+  }
+}
+</script>
