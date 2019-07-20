@@ -17,8 +17,8 @@
                 label="登録品名"
               ></v-text-field>
                 <v-btn
-                  color="red"
-                  @click="alert=!alert"
+                 color="red"
+                 @click="alert=!alert"
                 >
                 登録
                 </v-btn>
@@ -37,22 +37,20 @@
   </div>
 </template>
 
+
 <script>
-  export default {
+export default {
     data: () => ({
       items: [
         {
           text: 'ホーム',
-          disabled: false,
-          href: 'home'
+          disabled: false
         },
         {
           text: '物品登録',
-          disabled: true,
-          href: 'add-property'
+          disabled: true
         },
-      ],
+      ]
     })
   }
-    
 </script>
