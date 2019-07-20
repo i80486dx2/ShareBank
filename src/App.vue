@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Share Bank</span>
-        <span class="font-weight-light"> BORROW</span>
-      </v-toolbar-title>
+      <router-link tag = "h1" to="/">
+        <h1>Share Bank</h1>
+      </router-link>
+
       <v-spacer></v-spacer>
       <v-btn
         flat
