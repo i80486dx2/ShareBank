@@ -45,7 +45,6 @@ export default {
         .then(function(userCredential) {
             console.log(userCredential);
             console.log(`Welcome back! Your uid is ${firebase.auth().currentUser.uid}`);
-            console.log(`${this.prototype.$test}だって`);
         })
         .catch(function(error) {
             const errorCode = error.code;
