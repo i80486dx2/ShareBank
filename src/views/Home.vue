@@ -1,5 +1,19 @@
 <template>
+
   <div id="app">
+    <v-layout>
+      <v-flex md12>
+        <v-card flat height15>
+          <div prepend-icon="account_circle">
+            <h3>  Name:</h3>
+          </div>
+          <div color="red">
+            <h4>  Points:</h4>
+          </div>
+        </v-card>
+      </v-flex>
+    </v-layout>
+
   <v-app id="inspire">
     <v-layout > 
       <v-flex xs4>
