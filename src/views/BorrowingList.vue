@@ -77,6 +77,7 @@ export default {
     watchPropertyList() {
       this.db.collection("properties")
       .onSnapshot((snapshot) => {
+        this.properies = {};
         snapshot.forEach((doc) => {
           const data = doc.data();
           data.id = doc.id;
