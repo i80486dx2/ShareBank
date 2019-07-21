@@ -1,9 +1,8 @@
 <template>
-<v-container>
-  <v-app id="inspire">
-    <v-layout column> 
+<v-container grid-list-md text-xs-center>
+    <v-layout row wrap>
       
-      <v-flex xs4>
+    <v-flex style="width: 350px;">
         <div class="item">
           <v-card>      
             <v-img
@@ -18,7 +17,7 @@
         </div>
       </v-flex>
    
-       <v-flex xs4>
+       <v-flex style="width: 350px;">
         <div class="item">
           <v-card> 
             <v-img
@@ -33,7 +32,7 @@
         </div>
       </v-flex>
     
-      <v-flex xs4>
+      <v-flex style="width: 350px;">
         <div class="item">
           <v-card>
             <v-img
@@ -49,9 +48,6 @@
       </v-flex>
 
     </v-layout>
-
-  </v-app>
-</div>
 </v-container>
 </template>
 
