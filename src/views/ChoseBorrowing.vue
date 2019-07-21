@@ -16,14 +16,15 @@ export default {
     }
   },
   mounted: function() {
-    this.pushRecipt("4PLxxhKIRYE9iKpET2T8", new Date());
+    this.pushRecipt("4PLxxhKIRYE9iKpET2T8", "テスト", new Date());
   },
   methods: {
-      pushRecipt(propertyId, dueDate) {
+      pushRecipt(propertyId, propertyName, dueDate) {
         this.db.collection("receipts").doc(propertyId).set({
             propertyId: propertyId,
             personId: firebase.auth().currentUser.uid,
-            dueDate: dueDate
+            dueDate: dueDate,
+            propertyName: propertyName
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
