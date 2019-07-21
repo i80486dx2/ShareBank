@@ -2,6 +2,7 @@
   <v-app>
     <v-toolbar app>
       <router-link tag = "h1" to="/home">
+        
         <h1>Share Bank</h1>
       </router-link>
 

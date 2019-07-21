@@ -1,7 +1,16 @@
 <template>
 <v-container grid-list-md text-xs-center>
-    <v-layout row wrap>
-      
+    <v-layout row wrap text-xs-left>
+    <v-flex style="width: 1000px;">
+    <v-alert
+      :value="true"
+      color="info"
+      icon="info"
+      outline
+    >
+      {{email}}さん、こんにちは！現在のあなたのポイントは30です。
+    </v-alert>
+    </v-flex>
     <v-flex style="width: 350px;">
         <div class="item">
           <v-card>      
@@ -63,8 +72,10 @@ h1{
 </style>
 
 <script>
+import firebase from 'firebase';
   export default {
     data: () => ({
+      email: firebase.auth().currentUser.email,
       whatsNext: [
         {
           text: '返却',
