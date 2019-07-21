@@ -2,8 +2,8 @@
 
   <div id="app">
     <v-layout>
-      <v-flex md12>
-        <v-card flat height15>
+      <v-flex md12 class="mr-2">
+        <v-card flat height15 >
           <div prepend-icon="account_circle">
             <h3>  Name:</h3>
           </div>

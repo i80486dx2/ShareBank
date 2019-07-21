@@ -11,19 +11,17 @@
           width="1000"
         ></v-img>
 
-      <v-flex>
-            <v-btn
-              v-for="(next, i) in whatsNext"
-              :key="i"
-              :href="next.href"
-              class="subheading mx-12"
-              target="_blank"
-            >
-            {{ next.text }}
-            </v-btn>
-      </v-flex>
-      
-    </v-layout>
+        <v-layout align-center justify-center>
+         <v-flex xs12 sm4 text-xs-center>
+            <div>
+             <v-btn large color="green lighten-1">ログイン</v-btn>
+            </div>
+            <div>
+             <v-btn large color="light-green lighten-2">新規登録</v-btn>
+            </div>
+          </v-flex>
+         </v-layout>
+       </v-layout>
   </v-container>
 </template>
 
@@ -39,26 +37,6 @@
           text: '新規登録',
           href: 'register'
         },
-        {
-          text: 'ホーム',
-          href: 'home'
-        },
-        {
-          text: '物品登録',
-          href: 'add-property'
-        },
-        {
-          text: '貸出可能リスト',
-          href: 'borrowable-list'
-        },
-        {
-          text: '貸出',
-          href: 'chose-borrowing'
-        },
-        {
-          text: '返却',
-          href: 'borrowing-list'
-        }
       ]
     })
   }
