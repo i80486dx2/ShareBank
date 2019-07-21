@@ -20,51 +20,18 @@
 
             <v-list-tile-content>
               <v-list-tile-title>{{ prop.name }}</v-list-tile-title>
-              <v-list-tile-sub-title v-if="prop.status">{{ prop.status.dueDate.toDate().toLocaleDateString() }} まで貸出予定</v-list-tile-sub-title>
+              <v-list-tile-sub-title v-if="prop.status">{{ prop.status.dueDate.toDate().toLocaleString('ja-JP') }} まで貸出予定</v-list-tile-sub-title>
             </v-list-tile-content>
 
             <v-list-tile-action>
               <v-btn icon ripple>
-                <v-icon color="grey lighten-1" v-if="!prop.status" @click.stop="prop.dialog = true">add_shopping_cart</v-icon>
+                <v-icon color="grey lighten-1" v-if="!prop.status" @click="pushRecipt(prop.id, prop.name)">add_shopping_cart</v-icon>
               </v-btn>
             </v-list-tile-action>
 
-            <v-dialog v-model="prop.dialog" persistent max-width="600px" @close="prop.dialog = false">
-
-                <template v-slot:activator="{ on }">
-                  <v-btn
-                    color="red lighten-2"
-                    dark
-                    v-on="on"
-                  >
-                    Click Me
-                  </v-btn>
-                </template>
-
-                <v-card>
-                  <v-card-title>
-                    <span class="headline">「{{prop.name}}」の貸出</span>
-                  </v-card-title>
-                  <v-card-text>
-                    <v-container grid-list-md>
-                      <v-layout wrap>
-                        <v-flex xs12>
-                          <v-text-field label="貸出期限"></v-text-field>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                    <small>*indicates required field</small>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" flat @click.stop="prop.dialog = false">キャンセル</v-btn>
-                    <v-btn color="blue darken-1" flat @click.stop="prop.dialog = false">貸出</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-
           </v-list-tile>
         </v-list>
+        <v-btn block color="secondary" dark :to="{name: 'home'}">完了</v-btn>
       </v-card>
       </v-container>
     </v-flex>
@@ -90,9 +57,6 @@ export default {
     this.watchPropertyList();
   },
   methods: {
-    close() {
-      console.log(this.properies)
-    },
     watchBorrowingList() {
       this.db.collection("receipts")
       .onSnapshot((snapshot) => {
@@ -119,7 +83,11 @@ export default {
     updateList() {
       console.log("Current data: ", this.recipts);
       this.properies = this.properies.map((prop) => {
-        if(this.recipts[prop.id]) {
+        if(this.recipts[prop.id] && this.recipts[prop.id].personId == firebase.auth().currentUser.uid) {
+          prop.status = this.recipts[prop.id];
+          prop.iconClass = "warning white--text";
+          prop.icon = "check";
+        }else if(this.recipts[prop.id]) {
           prop.status = this.recipts[prop.id];
           prop.iconClass = "error white--text";
           prop.icon = "block";
@@ -131,7 +99,19 @@ export default {
         return prop;
       });
       console.log("Current pf data: ", this.properies);
-    }
+    },
+    pushRecipt(propertyId, propertyName) {
+      const dueDate = new Date(new Date().getTime() + 3* (1000 * 60 * 60));
+        this.db.collection("receipts").doc(propertyId).set({
+            propertyId: propertyId,
+            personId: firebase.auth().currentUser.uid,
+            dueDate: dueDate,
+            propertyName: propertyName
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+      }
   }
 }
 </script>
