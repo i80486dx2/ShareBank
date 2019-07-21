@@ -7,7 +7,7 @@
         <v-card>
         <v-flex>
           <img src="../assets/IMG_3110.jpg" width="350"/>
-          <v-btn  large block :to="{name: 'chose-borrowing'}"><h1>貸す</h1></v-btn>      
+          <v-btn  large block :to="{name: 'add-property'}"><h1>貸す</h1></v-btn>      
         </v-flex>
         </v-card>
       </div>
@@ -17,7 +17,7 @@
         <v-flex>
           <img src="../assets/IMG_3111.jpg" width="350"/>
           <div>
-            <v-btn large block ><h1>借りる</h1></v-btn>
+            <v-btn large block :to="{name: 'borrowable-list'}"><h1>借りる</h1></v-btn>
           </div>
         </v-flex>
         </v-card>
@@ -28,7 +28,7 @@
         <v-flex>
           <img src="../assets/IMG_3112.jpg" width="350"/>
           <div>
-            <v-btn large block ><h1>返す</h1></v-btn>
+            <v-btn large block :to="{name: 'borrowing-list'}"><h1>返す</h1></v-btn>
           </div>
         </v-flex>
         </v-card>
