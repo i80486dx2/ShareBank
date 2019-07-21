@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <router-link tag = "h1" to="/">
+      <router-link tag = "h1" to="/home">
         <h1>Share Bank</h1>
       </router-link>
 
@@ -11,7 +11,7 @@
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
       >
-        <span class="mr-2">Tesing</span>
+        <span class="mr-2">Beta</span>
       </v-btn>
     </v-toolbar>
 

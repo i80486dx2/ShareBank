@@ -1,6 +1,20 @@
 <template>
-  <div class="about">
-    <h1>This is an chose-borrowing page</h1>
+  <div id="prop">
+   <v-breadcrumbs :items="items" divider=">" light>
+   </v-breadcrumbs>
+    <v-layout align-center justify-center>
+      <v-flex md5 class="white">
+        <v-container style="position: relative;top: 20%;" class="text-md-center">
+          <v-card flat>
+            <v-card-title>
+              <h2>This is an chose-borrowing page</h2>
+            </v-card-title>
+           
+          </v-card>
+        </v-container>
+      </v-flex>
+    </v-layout>
+    
   </div>
 </template>
 

@@ -6,7 +6,7 @@
         <v-container style="position: relative;top: 20%;" class="text-md-center">
           <v-card flat>
             <v-card-title primary-title display-1>
-              <h4>ログイン</h4>
+              <h2>ログイン</h2>
             </v-card-title>
             <v-form>
             <v-text-field
