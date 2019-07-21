@@ -65,7 +65,7 @@ export default {
           this.recipts[doc.data().propertyId] = doc.data();
         });
         this.updateList();
-        this.watchPropertyList();
+        //this.watchPropertyList();
       });
     },
     watchPropertyList() {
@@ -95,6 +95,7 @@ export default {
           prop.iconClass = "success white--text";
           prop.icon = "add";
           prop.dialog = false;
+          prop.status = null;
         }
         return prop;
       });

@@ -71,13 +71,12 @@ export default {
           if(doc.data().personId == firebase.auth().currentUser.uid) this.recipts[doc.data().propertyId] = doc.data();
         });
         this.updateList();
-        this.watchPropertyList();
       });
     },
     watchPropertyList() {
       this.db.collection("properties")
       .onSnapshot((snapshot) => {
-        this.properies = {};
+        this.properies = [];
         snapshot.forEach((doc) => {
           const data = doc.data();
           data.id = doc.id;
