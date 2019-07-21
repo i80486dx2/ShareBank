@@ -39,7 +39,7 @@ export default new Router({
     },
     {
       path: '/borrowing-list',
-      name: 'add-property',
+      name: 'borrowing-list',
       component: () => import('./views/BorrowingList.vue')
     },
     {
